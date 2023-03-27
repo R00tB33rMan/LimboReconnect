@@ -61,7 +61,7 @@ public class ReconnectHandler implements LimboSessionHandler {
       if (exception != null) {
         if (Config.IMP.DEBUG) {
           LimboReconnect.getLogger()
-              .info("{} can't ping {}", this.player.getProxyPlayer().getGameProfile().getName(), this.server.getServerInfo().getName());
+              .error(this.player.getProxyPlayer().getGameProfile().getName() + " can't ping " + this.server.getServerInfo().getName(), exception);
         }
 
         this.player.getScheduledExecutor().schedule(this::tick, Config.IMP.CHECK_INTERVAL, TimeUnit.MILLISECONDS);
